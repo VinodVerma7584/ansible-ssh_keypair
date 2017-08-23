@@ -20,8 +20,8 @@ None.
 
 Inside `vars/ssh_keypair.yml` (note the pipe and spacing for the private key!):
 
-    user: root
-    homedir: /root
+    ssh_user: root
+    ssh_user_homedir: /root
     key_private: |
       -----BEGIN RSA PRIVATE KEY-----
       YiAyGtywXvqcy392xWskk1E8tz6ZNMO0PiNYCx+fLUOwy2lc3G5sBgVEQCBasdxd
