@@ -2,24 +2,24 @@
 
 - name: Ensure ~/.ssh directory exists
   file:
-    path: {{ homedir }}/.ssh
+    path: "{{ homedir }}/.ssh"
     state: directory
-    owner: {{ user }}
-    group: {{ user }}
+    owner: "{{ user }}"
+    group: "{{ user }}"
     mode: 0700
 
 - name: Install SSH Private Key
   copy:
-    owner: {{ user }}
-    group: {{ user }}
-    dest: {{ homedir }}/.ssh/id_rsa
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    dest: "{{ homedir }}/.ssh/id_rsa"
     mode: 0600
     content: "{{ key_private }}"
 
 - name: Install SSH Public Key
   copy:
-    owner: {{ user }}
-    group: {{ user }}
-    dest: {{ homedir }}/.ssh/id_rsa.pub
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    dest: "{{ homedir }}/.ssh/id_rsa.pub"
     mode: 0600
     content: "{{ key_public }}"
