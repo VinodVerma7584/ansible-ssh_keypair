@@ -13,17 +13,21 @@ None.
 ## Example Playbook
 
     - hosts: db-servers
-      become: yes
       vars_files:
-        - vars/mysql-scripts.yml
+        - vars/ssh_keypair.yml
       roles:
-        - { role: net2grid.mysql-deploy }
+        - { role: net2grid.ssh_keypair }
 
-*Inside `vars/mysql-scripts.yml`*:
+Inside `vars/ssh_keypair.yml` (note the pipe and spacing for the private key!):
 
-    mysql_scripts:
-      - file1.sql
-      - file2.sql
+    user: root
+    homedir: /root
+    key_private: |
+      -----BEGIN RSA PRIVATE KEY-----
+      YiAyGtywXvqcy392xWskk1E8tz6ZNMO0PiNYCx+fLUOwy2lc3G5sBgVEQCBasdxd
+      Fxx9H+VwmNpZXopQtBguuhijfbeX8IHn8voBo9EtTOl4tyEsnLHfyVWAqL3vFXHi
+      -----END RSA PRIVATE KEY-----
+    key_public: "ssh-rsa AAAAB3NzaC1yc2EAAIlh4aKFgC1CcosaReT+921DT9UHLuTOj2Qb69 root@vm"
 
 ## License
 
